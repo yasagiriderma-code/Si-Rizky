@@ -92,9 +92,11 @@ body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-
 .sec{font-size:16px;font-weight:600;margin-bottom:10px;}
 
 /* PREVIEW */
-.prev{background:var(--card);border-radius:18px;border:1px solid var(--bo);padding:16px 18px;margin-bottom:14px;}
-.srow{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
-.srow::-webkit-scrollbar{display:none;}
+.prev{background:var(--card);border-radius:18px;border:1px solid var(--bo);padding:16px 18px;margin-bottom:14px;overflow:hidden;}
+.srow{display:flex;gap:10px;overflow-x:auto;overflow-y:visible;padding-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--bo) transparent;width:100%;box-sizing:border-box;}
+.srow::-webkit-scrollbar{height:4px;display:block;}
+.srow::-webkit-scrollbar-track{background:transparent;}
+.srow::-webkit-scrollbar-thumb{background:var(--bo);border-radius:2px;}
 
 /* LANDSCAPE screenshot cards */
 .ssc{flex-shrink:0;width:280px;height:160px;border-radius:12px;overflow:hidden;border:1px solid var(--bo);cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
@@ -202,7 +204,7 @@ body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-
       </div>
       <div>
         <h1>Si Rizky</h1>
-        <span>Game Adventure</span>
+        <span>Game Arcade</span>
       </div>
     </div>
     <div class="nav-acts">
@@ -246,7 +248,7 @@ body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-
     </div>
     <div class="app-inf">
       <h2>Si Rizky</h2>
-      <div class="dev">by Rizky Studio</div>
+      <div class="dev">by R&Y Studio</div>
       <div class="genre">Pixel Art · Runner · Indie</div>
       <div class="ameta">
         <div class="mi"><span class="mv">4.8 ★</span><span class="mk">Rating</span></div>
@@ -277,7 +279,7 @@ body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-
       </div>
     </div>
     <div class="clog">
-      <strong>Changelog v1.0.0:</strong> Rilis perdana! Karakter Si Rizky si kuning pemberani · Lari, lompat, hindari rintangan · Skor tertinggi tersimpan · Musik & sound effect pixel art
+      <strong>Changelog v1.0.0:</strong> Rilis perdana! Karakter Si Rizky si kuning pemberani · Lari, lompat, hindari rintangan · Skor tertinggi tersimpan · pixel art
     </div>
   </div>
 
@@ -357,7 +359,7 @@ body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-
     <div class="ccard">
       <div class="chdr"><div class="av" style="background:#27ae60">NK</div><div class="cm"><div class="cn">Nadia Khairunnisa</div><div class="cd">1 April 2025</div></div></div>
       <div class="cstars"><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span></div>
-      <div class="ctxt">Sound effect-nya gemas! Musiknya juga pas buat game lari kayak gini. Desain musuhnya unik-unik. Minta tambah karakter baru ya devs! 🙏💚</div>
+      <div class="ctxt">Gemas! pas buat game lari kayak gini. Desain bangunannya unik-unik. Minta tambah karakter baru ya devs! 🙏💚</div>
       <div class="lrow"><button class="lbtn" id="l4" onclick="tgl('l4','c4')">👍 <span id="c4">33</span></button><button class="lbtn">Balas</button></div>
     </div>
   </div>
@@ -365,7 +367,7 @@ body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-
 </div>
 
 <div class="footer">
-  &copy; 2025 Rizky Studio · Dibuat dengan ❤️ di Indonesia<br>
+  &copy; 2025 R&Y Studio · Dibuat dengan ❤️ di Indonesia<br>
   <span style="margin-top:4px;display:block;">Si Rizky v1.0.0 · All rights reserved</span>
 </div>
 
@@ -375,11 +377,10 @@ body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-
     <button class="mclose" onclick="closeCreditsBtn()">✕</button>
     <h3>Credits</h3>
     <div class="msub">Tim di balik Si Rizky</div>
-    <div class="crow"><div class="crav" style="background:#00B900">R</div><div class="crinf"><div class="crn">Rizky Pratama</div><div class="crr">Game Designer · Lead Developer</div></div></div>
-    <div class="crow"><div class="crav" style="background:#8e44ad">A</div><div class="crinf"><div class="crn">Andi Nugroho</div><div class="crr">Programmer · Backend</div></div></div>
-    <div class="crow"><div class="crav" style="background:#e67e22">S</div><div class="crinf"><div class="crn">Sari Indah</div><div class="crr">UI/UX Designer · Artist</div></div></div>
-    <div class="crow"><div class="crav" style="background:#2980b9">F</div><div class="crinf"><div class="crn">Fajar Ramadhan</div><div class="crr">Composer · Sound Design</div></div></div>
-    <div class="crow" style="border:none"><div class="crav" style="background:#c0392b">T</div><div class="crinf"><div class="crn">Tika Wulandari</div><div class="crr">QA Tester · Community</div></div></div>
+    <div class="crow"><div class="crav" style="background:#00B900">R</div><div class="crinf"><div class="crn">Yasa Giriderma</div><div class="crr">Game Designer · Lead Developer</div></div></div>
+    <div class="crow"><div class="crav" style="background:#8e44ad">A</div><div class="crinf"><div class="crn">M. Rizky Wardhana</div><div class="crr">Programmer · Backend</div></div></div>
+    <div class="crow"><div class="crav" style="background:#e67e22">S</div><div class="crinf"><div class="crn">M. Rizky Wardhana</div><div class="crr">UI/UX Designer · Artist</div></div></div>
+    <div class="crow" style="border:none"><div class="crav" style="background:#c0392b">T</div><div class="crinf"><div class="crn">Yasa Giriderma</div><div class="crr">QA Tester · Community</div></div></div>
   </div>
 </div>
 
