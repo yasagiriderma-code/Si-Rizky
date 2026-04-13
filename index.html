@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Si Rizky - Game Adventure Pixel Art. Download APK gratis untuk Android!">
+<meta property="og:title" content="Si Rizky - Download Game APK">
+<meta property="og:description" content="Game adventure pixel art seru! Mainkan Si Rizky sekarang.">
+<meta property="og:image" content="assets/preview1.jpeg">
+<title>Si Rizky — Download Game APK</title>
+<style>
+:root {
+  --g: #00B900; --gd: #009900; --bg: #f0f2f5; --card: #ffffff;
+  --tx: #1a1a1a; --mu: #6b7280; --bo: #e5e7eb; --sf: #FFD700;
+}
+.dm { --bg:#1a1c1e; --card:#252829; --tx:#f0f0f0; --mu:#9ca3af; --bo:#3a3d42; }
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-serif;transition:background .3s,color .3s;min-height:100vh;}
+
+/* HEADER */
+.hdr{background:var(--g);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.15);}
+.hdr-in{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:11px 16px;gap:10px;}
+.hdr-left{display:flex;align-items:center;gap:10px;min-width:0;}
+.hdr-ico{width:36px;height:36px;border-radius:10px;overflow:hidden;flex-shrink:0;background:#fff;}
+.hdr-ico img{width:100%;height:100%;object-fit:cover;}
+.hdr-left h1{color:#fff;font-size:18px;font-weight:700;white-space:nowrap;}
+.hdr-left span{color:rgba(255,255,255,.75);font-size:11px;display:block;}
+.nav-acts{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.nbtn{background:rgba(255,255,255,.18);border:none;color:#fff;padding:6px 12px;border-radius:20px;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:5px;transition:background .2s;white-space:nowrap;}
+.nbtn:hover{background:rgba(255,255,255,.32);}
+.hbg{background:none;border:none;color:#fff;cursor:pointer;padding:6px;display:flex;flex-direction:column;gap:4px;}
+.hbg span{display:block;width:20px;height:2px;background:#fff;border-radius:2px;transition:all .3s;}
+
+/* DROPDOWN */
+.ddo{display:none;position:fixed;inset:0;z-index:199;}
+.ddo.on{display:block;}
+.dd{display:none;position:absolute;right:12px;top:60px;background:var(--card);border:1px solid var(--bo);border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.18);min-width:210px;z-index:200;overflow:hidden;}
+.dd.on{display:block;}
+.ddi{display:flex;align-items:center;gap:10px;padding:13px 16px;font-size:14px;color:var(--tx);cursor:pointer;border-bottom:1px solid var(--bo);transition:background .15s;}
+.ddi:last-child{border-bottom:none;}
+.ddi:hover{background:var(--bg);}
+.ddico{font-size:15px;width:20px;text-align:center;}
+.ddsep{padding:6px 16px;font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:.5px;background:var(--bg);}
+.smrow{display:flex;gap:8px;padding:10px 16px;background:var(--bg);}
+.smbtn{flex:1;padding:8px 4px;border-radius:10px;border:1px solid var(--bo);background:var(--card);color:var(--tx);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;transition:background .15s;}
+.smbtn:hover{background:var(--bo);}
+.pill{width:36px;height:20px;border-radius:10px;background:var(--bo);cursor:pointer;position:relative;transition:background .2s;flex-shrink:0;margin-left:auto;border:none;}
+.pill.on{background:var(--g);}
+.pill::after{content:'';position:absolute;width:14px;height:14px;background:#fff;border-radius:50%;top:3px;left:3px;transition:left .2s;}
+.pill.on::after{left:19px;}
+
+/* MAIN */
+.main{max-width:900px;margin:0 auto;padding:16px;}
+
+/* HERO */
+.hero{background:var(--card);border-radius:18px;border:1px solid var(--bo);padding:20px;display:flex;gap:16px;align-items:flex-start;margin-bottom:14px;}
+.app-ico{width:88px;height:88px;border-radius:20px;overflow:hidden;flex-shrink:0;box-shadow:0 4px 14px rgba(0,0,0,.12);}
+.app-ico img{width:100%;height:100%;object-fit:cover;}
+.app-inf{flex:1;min-width:0;}
+.app-inf h2{font-size:22px;font-weight:700;}
+.dev{color:var(--g);font-size:13px;margin-top:3px;font-weight:500;}
+.genre{color:var(--mu);font-size:12px;margin-top:2px;}
+.ameta{display:flex;gap:14px;margin-top:10px;flex-wrap:wrap;}
+.mi{display:flex;flex-direction:column;align-items:center;}
+.mv{font-size:15px;font-weight:600;}
+.mk{font-size:10px;color:var(--mu);}
+.mdv{width:1px;background:var(--bo);align-self:stretch;}
+
+/* DOWNLOAD */
+.dls{background:var(--card);border-radius:18px;border:1px solid var(--bo);padding:16px 18px;margin-bottom:14px;}
+.dlt{font-size:13px;color:var(--mu);margin-bottom:10px;font-weight:500;}
+.dlcs{display:flex;gap:10px;flex-wrap:wrap;}
+.dlc{flex:1;min-width:220px;border:1px solid var(--bo);border-radius:14px;padding:14px;background:var(--bg);display:flex;align-items:center;gap:12px;position:relative;}
+.dlc.latest{border-color:var(--g);background:rgba(0,185,0,.04);}
+.dlbadge{position:absolute;top:-1px;right:14px;background:var(--g);color:#fff;font-size:10px;padding:2px 8px;border-radius:0 0 8px 8px;font-weight:700;}
+.dlico{width:40px;height:40px;border-radius:10px;background:var(--g);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.dlico svg{width:20px;height:20px;fill:#fff;}
+.dlico.old{background:#6b7280;}
+.dlm{flex:1;}
+.dlm .ver{font-size:15px;font-weight:600;}
+.dlm .inf{font-size:11px;color:var(--mu);margin-top:2px;}
+.dlbtn{background:var(--g);color:#fff;border:none;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:background .2s,transform .1s;text-decoration:none;display:inline-block;}
+.dlbtn:hover{background:var(--gd);}
+.dlbtn:active{transform:scale(.96);}
+.dlbtn.ghost{background:transparent;color:var(--g);border:1.5px solid var(--g);}
+.dlbtn.ghost:hover{background:rgba(0,185,0,.08);}
+.clog{font-size:12px;color:var(--mu);margin-top:12px;padding-top:12px;border-top:1px solid var(--bo);line-height:1.7;}
+.clog strong{color:var(--tx);font-weight:600;}
+
+/* SECTION */
+.sec{font-size:16px;font-weight:600;margin-bottom:10px;}
+
+/* PREVIEW */
+.prev{background:var(--card);border-radius:18px;border:1px solid var(--bo);padding:16px 18px;margin-bottom:14px;}
+.srow{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.srow::-webkit-scrollbar{display:none;}
+
+/* LANDSCAPE screenshot cards */
+.ssc{flex-shrink:0;width:280px;height:160px;border-radius:12px;overflow:hidden;border:1px solid var(--bo);cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.ssc:hover{transform:scale(1.03);box-shadow:0 6px 20px rgba(0,0,0,.12);}
+.ssc img{width:100%;height:100%;object-fit:cover;display:block;}
+.ssc-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);transition:background .2s;display:flex;align-items:center;justify-content:center;}
+.ssc:hover .ssc-overlay{background:rgba(0,0,0,.25);}
+.ssc-zoom{opacity:0;transition:opacity .2s;font-size:22px;}
+.ssc:hover .ssc-zoom{opacity:1;}
+
+/* VIDEO card - landscape too */
+.vc{flex-shrink:0;width:280px;height:160px;border-radius:12px;overflow:hidden;border:1px solid var(--bo);cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;background:#0d0d1a;}
+.vc:hover{transform:scale(1.03);box-shadow:0 6px 20px rgba(0,0,0,.2);}
+.vc video{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;}
+.vc-overlay{position:absolute;inset:0;background:rgba(0,0,0,.35);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;transition:background .2s;}
+.vc:hover .vc-overlay{background:rgba(0,0,0,.15);}
+.playbtn{width:46px;height:46px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,.5);transition:background .2s;backdrop-filter:blur(2px);}
+.vc:hover .playbtn{background:rgba(255,255,255,.35);}
+.playbtn svg{width:18px;height:18px;fill:#fff;margin-left:3px;}
+.vc-lbl{color:rgba(255,255,255,.9);font-size:12px;font-weight:600;}
+.vc-dur{color:rgba(255,255,255,.55);font-size:11px;}
+
+/* LIGHTBOX */
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:400;align-items:center;justify-content:center;padding:16px;}
+.lb.on{display:flex;}
+.lb-wrap{max-width:700px;width:100%;position:relative;}
+.lb-close{position:absolute;top:-40px;right:0;background:rgba(255,255,255,.15);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;}
+.lb-close:hover{background:rgba(255,255,255,.3);}
+.lb-img{width:100%;border-radius:14px;object-fit:contain;max-height:70vh;display:block;}
+.lb-video{width:100%;border-radius:14px;max-height:70vh;display:block;background:#000;}
+.lb-cap{color:rgba(255,255,255,.7);font-size:13px;text-align:center;margin-top:10px;}
+
+/* RATING */
+.rats{background:var(--card);border-radius:18px;border:1px solid var(--bo);padding:16px 18px;margin-bottom:14px;}
+.rat-ov{display:flex;gap:20px;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
+.rat-big{text-align:center;flex-shrink:0;}
+.rnum{font-size:52px;font-weight:700;line-height:1;}
+.rstars{display:flex;gap:3px;justify-content:center;margin-top:4px;}
+.rcount{font-size:12px;color:var(--mu);margin-top:4px;}
+.star{color:var(--sf);font-size:16px;}
+.rbars{flex:1;min-width:160px;display:flex;flex-direction:column;gap:5px;}
+.brow{display:flex;align-items:center;gap:8px;font-size:12px;}
+.brow .bn{width:8px;color:var(--mu);text-align:right;}
+.btrk{flex:1;height:6px;background:var(--bo);border-radius:3px;overflow:hidden;}
+.bfil{height:100%;background:var(--g);border-radius:3px;width:0;transition:width .8s ease;}
+.brow .bp{width:26px;color:var(--mu);text-align:right;font-size:11px;}
+
+/* COMMENTS */
+.ccard{border:1px solid var(--bo);border-radius:14px;padding:14px;margin-bottom:10px;background:var(--bg);}
+.chdr{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0;color:#fff;}
+.cm{flex:1;}
+.cn{font-size:14px;font-weight:600;}
+.cd{font-size:11px;color:var(--mu);}
+.cstars{display:flex;gap:2px;margin-bottom:6px;}
+.ctxt{font-size:13px;line-height:1.6;}
+.lrow{display:flex;align-items:center;gap:12px;margin-top:10px;}
+.lbtn{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--mu);background:none;border:none;cursor:pointer;padding:4px 8px;border-radius:20px;transition:background .15s;}
+.lbtn:hover{background:var(--bo);color:var(--g);}
+.lbtn.liked{color:var(--g);}
+
+/* CREDITS MODAL */
+.moverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;align-items:center;justify-content:center;padding:16px;}
+.moverlay.on{display:flex;}
+.modal{background:var(--card);border-radius:20px;padding:24px;max-width:340px;width:100%;position:relative;max-height:90vh;overflow-y:auto;}
+.modal h3{font-size:18px;font-weight:700;margin-bottom:4px;}
+.msub{font-size:13px;color:var(--mu);margin-bottom:16px;}
+.crow{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--bo);}
+.crow:last-of-type{border-bottom:none;}
+.crav{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;flex-shrink:0;}
+.crinf .crn{font-size:14px;font-weight:600;}
+.crinf .crr{font-size:12px;color:var(--mu);}
+.mclose{position:absolute;top:16px;right:16px;background:var(--bg);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:16px;color:var(--mu);display:flex;align-items:center;justify-content:center;}
+
+/* TOAST */
+#toast{display:none;position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--g);color:#fff;padding:10px 22px;border-radius:30px;font-size:13px;font-weight:600;z-index:500;box-shadow:0 4px 16px rgba(0,185,0,.3);white-space:nowrap;}
+
+/* FOOTER */
+.footer{text-align:center;color:var(--mu);font-size:12px;padding:24px 16px 32px;max-width:900px;margin:0 auto;}
+
+/* RESPONSIVE */
+@media(max-width:540px){
+  .hero{flex-direction:column;}
+  .dlc{min-width:100%;}
+  .hbg{display:flex;}
+  .nbtn.hs{display:none;}
+  .ssc,.vc{width:240px;height:136px;}
+}
+@media(min-width:541px){
+  .hbg{display:none;}
+}
+@media(max-width:380px){
+  .ssc,.vc{width:200px;height:113px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="hdr-left">
+      <div class="hdr-ico">
+        <img src="assets/preview1.jpeg" alt="Si Rizky icon">
+      </div>
+      <div>
+        <h1>Si Rizky</h1>
+        <span>Game Adventure</span>
+      </div>
+    </div>
+    <div class="nav-acts">
+      <button class="nbtn hs" onclick="toggleDark()"><span id="dm-ico">🌙</span> <span id="dm-txt">Dark</span></button>
+      <button class="nbtn hs" onclick="openCredits()">👥 Credits</button>
+      <button class="hbg" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="ddo" id="ddo" onclick="closeMenu()"></div>
+  <div class="dd" id="dd">
+    <div class="ddi" onclick="toggleDark();closeMenu()">
+      <span class="ddico" id="dd-ico">🌙</span>
+      <span id="dd-txt">Dark Mode</span>
+      <button class="pill" id="pill"></button>
+    </div>
+    <div class="ddi" onclick="openCredits();closeMenu()"><span class="ddico">👥</span> Credits</div>
+    <div class="ddsep">Follow kami</div>
+    <div class="smrow">
+      <button class="smbtn" onclick="ol('https://github.com')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.42 7.87 10.96.58.1.79-.25.79-.56v-2.13c-3.2.69-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.18a10.9 10.9 0 0 1 2.87-.39c.97 0 1.95.13 2.87.39 2.18-1.49 3.14-1.18 3.14-1.18.62 1.57.23 2.73.11 3.02.74.8 1.18 1.82 1.18 3.07 0 4.41-2.7 5.39-5.27 5.67.42.36.79 1.07.79 2.16v3.2c0 .31.2.67.8.56C20.7 21.42 24 17.1 24 12 24 5.65 18.35.5 12 .5z"/></svg>
+        GitHub
+      </button>
+      <button class="smbtn" onclick="ol('https://instagram.com')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        IG
+      </button>
+      <button class="smbtn" onclick="ol('https://tiktok.com')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        TikTok
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="main">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="app-ico">
+      <img src="assets/preview2.jpeg" alt="Si Rizky gameplay">
+    </div>
+    <div class="app-inf">
+      <h2>Si Rizky</h2>
+      <div class="dev">by Rizky Studio</div>
+      <div class="genre">Pixel Art · Runner · Indie</div>
+      <div class="ameta">
+        <div class="mi"><span class="mv">4.8 ★</span><span class="mk">Rating</span></div>
+        <div class="mdv"></div>
+        <div class="mi"><span class="mv">10K+</span><span class="mk">Unduhan</span></div>
+        <div class="mdv"></div>
+        <div class="mi"><span class="mv">54 MB</span><span class="mk">Ukuran</span></div>
+        <div class="mdv"></div>
+        <div class="mi"><span class="mv">3+</span><span class="mk">Umur</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOWNLOAD -->
+  <div class="dls">
+    <div class="dlt">Pilih versi untuk diunduh</div>
+    <div class="dlcs">
+      <div class="dlc latest">
+        <div class="dlbadge">TERBARU</div>
+        <div class="dlico">
+          <svg viewBox="0 0 24 24"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 4h14v-2H5v2z"/></svg>
+        </div>
+        <div class="dlm">
+          <div class="ver">v1.0.0</div>
+          <div class="inf">54 MB · Android 6.0+ · 2025</div>
+        </div>
+        <a class="dlbtn" href="assets/SiRisky-v1_0_0.apk" download="SiRisky-v1_0_0.apk" onclick="showToast('v1.0.0')">Unduh</a>
+      </div>
+    </div>
+    <div class="clog">
+      <strong>Changelog v1.0.0:</strong> Rilis perdana! Karakter Si Rizky si kuning pemberani · Lari, lompat, hindari rintangan · Skor tertinggi tersimpan · Musik & sound effect pixel art
+    </div>
+  </div>
+
+  <!-- PREVIEW -->
+  <div class="prev">
+    <div class="sec">Preview Game</div>
+    <div class="srow">
+
+      <!-- Screenshot 1 -->
+      <div class="ssc" onclick="openImg('assets/preview1.jpeg','Game Over Screen – Score 141')">
+        <img src="assets/preview1.jpeg" alt="Game Over Screen" loading="lazy">
+        <div class="ssc-overlay"><span class="ssc-zoom">🔍</span></div>
+      </div>
+
+      <!-- Screenshot 2 -->
+      <div class="ssc" onclick="openImg('assets/preview2.jpeg','Gameplay – Score 220, Si Rizky berlari')">
+        <img src="assets/preview2.jpeg" alt="Gameplay Screenshot" loading="lazy">
+        <div class="ssc-overlay"><span class="ssc-zoom">🔍</span></div>
+      </div>
+
+      <!-- Video -->
+      <div class="vc" onclick="openVid('assets/videopreview.mp4','Gameplay Video Preview')">
+        <video src="assets/videopreview.mp4" muted playsinline preload="metadata"></video>
+        <div class="vc-overlay">
+          <div class="playbtn">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="vc-lbl">Gameplay Video</div>
+          <div class="vc-dur">Preview · HD</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RATING -->
+  <div class="rats">
+    <div class="sec">Rating & Ulasan</div>
+    <div class="rat-ov">
+      <div class="rat-big">
+        <div class="rnum">4.8</div>
+        <div class="rstars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="rcount">2.847 ulasan</div>
+      </div>
+      <div class="rbars">
+        <div class="brow"><span class="bn">5</span><div class="btrk"><div class="bfil" data-w="78"></div></div><span class="bp">78%</span></div>
+        <div class="brow"><span class="bn">4</span><div class="btrk"><div class="bfil" data-w="13"></div></div><span class="bp">13%</span></div>
+        <div class="brow"><span class="bn">3</span><div class="btrk"><div class="bfil" data-w="5"></div></div><span class="bp">5%</span></div>
+        <div class="brow"><span class="bn">2</span><div class="btrk"><div class="bfil" data-w="2"></div></div><span class="bp">2%</span></div>
+        <div class="brow"><span class="bn">1</span><div class="btrk"><div class="bfil" data-w="2"></div></div><span class="bp">2%</span></div>
+      </div>
+    </div>
+
+    <div class="ccard">
+      <div class="chdr"><div class="av" style="background:#e67e22">AR</div><div class="cm"><div class="cn">Ahmad Rizaldi</div><div class="cd">10 April 2025</div></div></div>
+      <div class="cstars"><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span></div>
+      <div class="ctxt">Game ini keren banget! Grafis pixel art-nya lucu dan gameplay-nya adiktif. Karakter si kuning lucuu 😂 Susah berhenti main sekali mulai. Ditunggu update selanjutnya!</div>
+      <div class="lrow"><button class="lbtn" id="l1" onclick="tgl('l1','c1')">👍 <span id="c1">24</span></button><button class="lbtn">Balas</button></div>
+    </div>
+
+    <div class="ccard">
+      <div class="chdr"><div class="av" style="background:#8e44ad">DS</div><div class="cm"><div class="cn">Dewi Sartika</div><div class="cd">8 April 2025</div></div></div>
+      <div class="cstars"><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">☆</span></div>
+      <div class="ctxt">Vibes-nya pixel art Indonesia banget! Suka sama background kota-kota yang keliatan familier. Minta tambah mode multiplayer ya biar bisa kompetisi skor sama teman 🙏</div>
+      <div class="lrow"><button class="lbtn" id="l2" onclick="tgl('l2','c2')">👍 <span id="c2">17</span></button><button class="lbtn">Balas</button></div>
+    </div>
+
+    <div class="ccard">
+      <div class="chdr"><div class="av" style="background:#2980b9">BP</div><div class="cm"><div class="cn">Bima Pratama</div><div class="cd">5 April 2025</div></div></div>
+      <div class="cstars"><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span></div>
+      <div class="ctxt">Lancar di HP lawas saya! Engga berat sama sekali. Highscore saya 441 nih, ada yang bisa ngalahin? 😤 Recommend 100% buat yang suka game casual seru.</div>
+      <div class="lrow"><button class="lbtn" id="l3" onclick="tgl('l3','c3')">👍 <span id="c3">41</span></button><button class="lbtn">Balas</button></div>
+    </div>
+
+    <div class="ccard">
+      <div class="chdr"><div class="av" style="background:#27ae60">NK</div><div class="cm"><div class="cn">Nadia Khairunnisa</div><div class="cd">1 April 2025</div></div></div>
+      <div class="cstars"><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span><span class="star" style="font-size:13px">★</span></div>
+      <div class="ctxt">Sound effect-nya gemas! Musiknya juga pas buat game lari kayak gini. Desain musuhnya unik-unik. Minta tambah karakter baru ya devs! 🙏💚</div>
+      <div class="lrow"><button class="lbtn" id="l4" onclick="tgl('l4','c4')">👍 <span id="c4">33</span></button><button class="lbtn">Balas</button></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  &copy; 2025 Rizky Studio · Dibuat dengan ❤️ di Indonesia<br>
+  <span style="margin-top:4px;display:block;">Si Rizky v1.0.0 · All rights reserved</span>
+</div>
+
+<!-- CREDITS MODAL -->
+<div class="moverlay" id="moverlay" onclick="closeCreditsEv(event)">
+  <div class="modal">
+    <button class="mclose" onclick="closeCreditsBtn()">✕</button>
+    <h3>Credits</h3>
+    <div class="msub">Tim di balik Si Rizky</div>
+    <div class="crow"><div class="crav" style="background:#00B900">R</div><div class="crinf"><div class="crn">Rizky Pratama</div><div class="crr">Game Designer · Lead Developer</div></div></div>
+    <div class="crow"><div class="crav" style="background:#8e44ad">A</div><div class="crinf"><div class="crn">Andi Nugroho</div><div class="crr">Programmer · Backend</div></div></div>
+    <div class="crow"><div class="crav" style="background:#e67e22">S</div><div class="crinf"><div class="crn">Sari Indah</div><div class="crr">UI/UX Designer · Artist</div></div></div>
+    <div class="crow"><div class="crav" style="background:#2980b9">F</div><div class="crinf"><div class="crn">Fajar Ramadhan</div><div class="crr">Composer · Sound Design</div></div></div>
+    <div class="crow" style="border:none"><div class="crav" style="background:#c0392b">T</div><div class="crinf"><div class="crn">Tika Wulandari</div><div class="crr">QA Tester · Community</div></div></div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="closeLb(event)">
+  <div class="lb-wrap">
+    <button class="lb-close" onclick="closeLbBtn()">✕</button>
+    <img id="lb-img" class="lb-img" src="" alt="" style="display:none">
+    <video id="lb-vid" class="lb-video" controls style="display:none"></video>
+    <div class="lb-cap" id="lb-cap"></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+let dark=false, menuOpen=false;
+const likes={};
+const bases={l1:24,l2:17,l3:41,l4:33};
+
+function toggleDark(){
+  dark=!dark;
+  document.body.classList.toggle('dm',dark);
+  const i=dark?'☀️':'🌙', t=dark?'Light':'Dark';
+  document.getElementById('dm-ico').textContent=i;
+  document.getElementById('dm-txt').textContent=t;
+  document.getElementById('dd-ico').textContent=i;
+  document.getElementById('dd-txt').textContent=dark?'Light Mode':'Dark Mode';
+  document.getElementById('pill').classList.toggle('on',dark);
+}
+function toggleMenu(){
+  menuOpen=!menuOpen;
+  document.getElementById('dd').classList.toggle('on',menuOpen);
+  document.getElementById('ddo').classList.toggle('on',menuOpen);
+}
+function closeMenu(){
+  menuOpen=false;
+  document.getElementById('dd').classList.remove('on');
+  document.getElementById('ddo').classList.remove('on');
+}
+function openCredits(){ document.getElementById('moverlay').classList.add('on'); }
+function closeCreditsEv(e){ if(e.target===document.getElementById('moverlay')) document.getElementById('moverlay').classList.remove('on'); }
+function closeCreditsBtn(){ document.getElementById('moverlay').classList.remove('on'); }
+
+function openImg(src,cap){
+  const lb=document.getElementById('lb');
+  document.getElementById('lb-vid').style.display='none';
+  document.getElementById('lb-vid').pause();
+  const img=document.getElementById('lb-img');
+  img.src=src; img.style.display='block';
+  document.getElementById('lb-cap').textContent=cap;
+  lb.classList.add('on');
+}
+function openVid(src,cap){
+  const lb=document.getElementById('lb');
+  document.getElementById('lb-img').style.display='none';
+  const vid=document.getElementById('lb-vid');
+  vid.src=src; vid.style.display='block';
+  document.getElementById('lb-cap').textContent=cap;
+  lb.classList.add('on');
+  vid.play();
+}
+function closeLb(e){ if(e.target===document.getElementById('lb')) closeLbBtn(); }
+function closeLbBtn(){
+  document.getElementById('lb').classList.remove('on');
+  const v=document.getElementById('lb-vid');
+  v.pause(); v.src='';
+  document.getElementById('lb-img').src='';
+}
+
+function showToast(ver){
+  const t=document.getElementById('toast');
+  t.textContent='Mengunduh Si Rizky '+ver+'... 📲';
+  t.style.display='block';
+  setTimeout(()=>t.style.display='none',3000);
+}
+
+function tgl(bid,cid){
+  likes[bid]=!likes[bid];
+  document.getElementById(cid).textContent=bases[bid]+(likes[bid]?1:0);
+  document.getElementById(bid).classList.toggle('liked',likes[bid]);
+}
+function ol(url){ window.open(url,'_blank'); }
+
+// animate rating bars on scroll
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.bfil').forEach(b=>{
+        b.style.width=b.dataset.w+'%';
+      });
+      observer.disconnect();
+    }
+  });
+},{threshold:.3});
+const ratSec=document.querySelector('.rats');
+if(ratSec) observer.observe(ratSec);
+</script>
+</body>
+</html>
